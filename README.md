@@ -27,5 +27,9 @@ kubectl create secret generic mongodb-credentials \
 
 ## Istio Install ##
 
-What I have found is that by doing istio install, which doesn't work but still installs the istio core, I can get an external IP.
+What I have found is that by doing istio install, which doesn't work but still installs the istio core, I can get an external IP by installing istio using knative docs.
+
+## Gitlab Auth Issues ##
+
+Been having secrets issues.
 
