@@ -24,3 +24,8 @@ kubectl create secret generic mongodb-credentials \
 --from-literal=MONGO_DB_USERNAME=YOUR_DATABASE_USERNAME \
 --from-literal=MONGO_DB_PASSWORD=YOUR_DATABASE_PASSWORD
 ```
+
+## Istio Install ##
+
+What I have found is that by doing istio install, which doesn't work but still installs the istio core, I can get an external IP.
+
