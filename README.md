@@ -27,9 +27,50 @@ kubectl create secret generic mongodb-credentials \
 
 ## Istio Install ##
 
-What I have found is that by doing istio install, which doesn't work but still installs the istio core, I can get an external IP by installing istio using knative docs.
+Istio can ahve problems installing. Can get stuck on:
+
+- Processing resources for Istiod. Waiting for Deployment/istio-system/istiod 
+
+1. So to debug why its happening, inspect the istio pods in istio namespace:
+```
+kubectl get pods -n istio-system
+```
+2. And then examine the pod for errors:
+```
+kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
+```
+
+3. For me it was giving me insufficient memory (RAM) error which makes sense as there are so many k8 related containers being run on docker, and I have only provisioned 2GB of RAM to Docker.
+
+So I increased the RAM to 4GB for Docker and istio installed properly.
+
+4. So being able to **debug your pods** in the right namespace is crucial.
+
 
 ## Gitlab Auth Issues ##
 
 Been having secrets issues.
+
+## Debugging ##
+
+After your service/deployment is created, it is important to be able to know what is happening at the resource level. Some commonly used commands to quickly debug are the following:
+
+- Get all your pods: 
+
+```
+kubectl get pods
+
+```
+- See detailed description of what's happening in your pod: 
+
+```
+kubectl describe pod YOUR_POD_NAME
+
+```
+- See Logs for all containers in your pod: 
+
+```
+kubectl logs YOUR_POD_NAME --all-containers=true
+ 
+```
 
