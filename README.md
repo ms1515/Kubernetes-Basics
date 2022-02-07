@@ -59,18 +59,23 @@ After your service/deployment is created, it is important to be able to know wha
 
 ```
 kubectl get pods
-
 ```
 - See detailed description of what's happening in your pod: 
-
 ```
 kubectl describe pod YOUR_POD_NAME
-
 ```
 - See Logs for all containers in your pod: 
 
 ```
 kubectl logs YOUR_POD_NAME --all-containers=true
- 
 ```
+- Get pods in a specific namespace
+```
+kubectl get pods -n NAMESPACE
+```
+- Describe a Pod in a certain Namespace
+```
+kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
+```
+
 
