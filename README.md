@@ -47,9 +47,12 @@ So I increased the RAM to 4GB for Docker and istio installed properly.
 4. So being able to **debug your pods** in the right namespace is crucial.
 
 
-## Gitlab Auth Issues ##
+## Auth Issues ##
 
-Been having secrets issues.
+Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages for private projects.
+
+- Check your secret is correct: even an extra space or a newline character introduced during installation can cause this without you even knowing it.
+- Copy the token exactly as is, from start to finish. Don't select the entire line as it may introduce newline or space/tab characters
 
 ## Debugging ##
 
