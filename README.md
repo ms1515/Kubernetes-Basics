@@ -54,6 +54,11 @@ Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages fo
 - Check your secret is correct: even an extra space or a newline character introduced during installation can cause this without you even knowing it.
 - Copy the token exactly as is, from start to finish. Don't select the entire line as it may introduce newline or space/tab characters
 
+## Check your comtext ## 
+
+- what context of kubernetes are you in: Docker Desktop, Kind (kubernetes in Docker) etc
+![image](uploads/cc8e50355e5fb3f9b6896977a6e1c490/image.png)
+
 ## Debugging ##
 
 After your service/deployment is created, it is important to be able to know what is happening at the resource level. Some commonly used commands to quickly debug are the following:
