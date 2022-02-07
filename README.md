@@ -1,5 +1,7 @@
 # Kubernetes-Basics
 
+Knative-serving installation guide: https://knative.dev/docs/install/serving/install-serving-with-yaml/#configure-dns
+
 ## Private Repositories ##
 
 - Gitlab auth server: https://registry.gitlab.com
@@ -57,7 +59,8 @@ Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages fo
 ## Check your comtext ## 
 
 - what context of kubernetes are you in: Docker Desktop, Kind (kubernetes in Docker) etc
-![image](uploads/cc8e50355e5fb3f9b6896977a6e1c490/image.png)
+
+![ALT]()
 
 ## Debugging ##
 
