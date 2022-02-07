@@ -27,26 +27,32 @@ kubectl create secret generic mongodb-credentials \
 --from-literal=MONGO_DB_PASSWORD=YOUR_DATABASE_PASSWORD
 ```
 
-## Istio Install ##
+## Things not becoming ready ##
 
-Istio can ahve problems installing. Can get stuck on:
+- It can be due to resource issues: RAM, CPU, Storage etc. For example
 
-- Processing resources for Istiod. Waiting for Deployment/istio-system/istiod 
+  - Istio can have problems installing. Can get stuck on:
 
-1. So to debug why its happening, inspect the istio pods in istio namespace:
-```
-kubectl get pods -n istio-system
-```
-2. And then examine the pod for errors:
-```
-kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
-```
+    - Processing resources for Istiod. Waiting for Deployment/istio-system/istiod 
 
-3. For me it was giving me insufficient memory (RAM) error which makes sense as there are so many k8 related containers being run on docker, and I have only provisioned 2GB of RAM to Docker.
+    1. So to debug why its happening, inspect the istio pods in istio namespace:
+    ```
+    kubectl get pods -n istio-system
+    ```
+    2. And then examine the pod for errors:
+    ```
+    kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
+    ```
 
-So I increased the RAM to 4GB for Docker and istio installed properly.
+    3. For me it was giving me insufficient memory (RAM) error which makes sense as there are so many k8 related containers being run on docker, and I have only provisioned 2GB of RAM to Docker.
 
-4. So being able to **debug your pods** in the right namespace is crucial.
+    So I increased the RAM to 4GB for Docker and istio installed properly.
+
+    4. So being able to **debug your pods** in the right namespace is crucial.
+
+  - MagicDNS not working
+    - Again check your resources.
+    
 
 
 ## Auth Issues ##
