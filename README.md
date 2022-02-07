@@ -76,6 +76,10 @@ kubectl logs YOUR_POD_NAME --all-containers=true
 ```
 kubectl get pods -n NAMESPACE
 ```
+- For Exampl, get knative-serving namespace pods:
+```
+kubectl get pods -n knative-serving
+```
 - Describe a Pod in a certain Namespace
 ```
 kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
