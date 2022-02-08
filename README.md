@@ -29,45 +29,46 @@ kubectl create secret generic mongodb-credentials \
 
 ## Things not becoming ready ##
 
-- It can be due to resource issues: RAM, CPU, Storage etc. For example
+It can be due to resource issues: RAM, CPU, Storage etc. For example
 
-  - Istio can have problems installing. Can get stuck on:
+### Istio can have problems installing. Can get stuck on ###
 
-    - Processing resources for Istiod. Waiting for Deployment/istio-system/istiod 
+```
+Processing resources for Istiod. Waiting for Deployment/istio-system/istiod 
+```
 
-    1. So to debug why its happening, inspect the istio pods in istio namespace:
-    ```
-    kubectl get pods -n istio-system
-    ```
-    2. And then examine the pod for errors:
-    ```
-    kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
-    ```
+  1. So to debug why its happening, inspect the istio pods in istio namespace:
+  ```
+  kubectl get pods -n istio-system
+  ```
+  2. And then examine the pod for errors:
+  ```
+  kubectl describe pod YOUR_ISTIO_POD_NAME -n istio-system
+  ```
 
-    3. For me it was giving me insufficient memory (RAM) error which makes sense as there are so many k8 related containers being run on docker, and I have only provisioned 2GB of RAM to Docker.
+  3. For me it was giving me insufficient memory (RAM) error which makes sense as there are so many k8 related containers being run on docker, and I have only provisioned 2GB of RAM to Docker.
 
-    So I increased the RAM to 4GB for Docker and istio installed properly.
+  So I increased the RAM to 4GB for Docker and istio installed properly.
 
-    4. So being able to **debug your pods** in the right namespace is crucial.
+  4. So being able to **debug your pods** in the right namespace is crucial.
 
-  - MagicDNS not working
-    - Again check your resources.
+### MagicDNS not working ###
+Again check your resources.
 
-  - Istio External IP not available
-    - Useful to check out the istio ingress service:
-    ```
-    kubectl get svc istio-ingressgateway -n istio-system
-    ```
-    OR
-    ```
-    kubectl get service istio-ingressgateway -n istio-system
-    ```
-    - Describe the service to get details
-    ```
-    kubectl describe svc istio-ingressgateway -n istio-system
-    ```
-    
+### Istio External IP not available ###
 
+Useful to check out the istio ingress service:
+  ```
+  kubectl get svc istio-ingressgateway -n istio-system
+  ```
+  OR
+  ```
+  kubectl get service istio-ingressgateway -n istio-system
+  ```
+  - Describe the service to get details
+  ```
+  kubectl describe svc istio-ingressgateway -n istio-system
+  ```
 
 ## Auth Issues ##
 
