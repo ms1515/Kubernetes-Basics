@@ -69,6 +69,14 @@ Useful to check out the istio ingress service:
   ```
   kubectl describe svc istio-ingressgateway -n istio-system
   ```
+  - Check the pods for istio-system namespace
+  ```
+  kubectl get pods -n istio-system
+  ```
+  - And then check that pod
+  ```
+  kubectl describe pod POD_NAME -n istio-system
+  ```
 
 ## Auth Issues ##
 
