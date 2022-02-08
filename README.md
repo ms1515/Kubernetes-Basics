@@ -57,6 +57,8 @@ kubectl create secret generic mongodb-credentials \
 
 ## Auth Issues ##
 
+### Gitlab Private Repos ###
+
 Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages for private projects.
 
 - Check your secret is correct: even an extra space or a newline character introduced during installation can cause this without you even knowing it.
