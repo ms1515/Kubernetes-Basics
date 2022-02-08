@@ -52,6 +52,20 @@ kubectl create secret generic mongodb-credentials \
 
   - MagicDNS not working
     - Again check your resources.
+
+  - Istio External IP not available
+    - Useful to check out the istio ingress service:
+    ```
+    kubectl get svc istio-ingressgateway -n istio-system
+    ```
+    OR
+    ```
+    kubectl get service istio-ingressgateway -n istio-system
+    ```
+    - Describe the service to get details
+    ```
+    kubectl describe svc istio-ingressgateway -n istio-system
+    ```
     
 
 
