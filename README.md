@@ -78,7 +78,7 @@ Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages fo
 
 - Check your secret is correct: even an extra space or a newline character introduced during installation can cause this without you even knowing it.
 - Copy the token exactly as is, from start to finish. Don't select the entire line as it may introduce newline or space/tab characters
-- ## Maybe ## your installation of k8 or knative-serving has a problem with pulling private images
+### Maybe your installed version of k8 or knative-serving has a problem with pulling private images 
 
 ## Check your comtext ## 
 
