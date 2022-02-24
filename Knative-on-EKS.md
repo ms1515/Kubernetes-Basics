@@ -90,7 +90,7 @@ You will need to create a SSL cert for all the subdomains or a wild card one lik
 kubectl edit svc istio-ingressgateway -n istio-system 
 ```
 
-- And then add the annotations for HTTPS and SSL certificate.
+- And then add the annotations for HTTPS port mappings to use and SSL certificate ARN.
 
 ```
 metadata:
@@ -100,7 +100,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
 ```
 
-- you will also need to map the ports for HTTP and HTTPS in the file like this:
+- you will also need to map the ports for HTTP and HTTPS in the file like this (which the "ssl-ports" references for "https"):
 
 ```
   ports:
@@ -120,9 +120,9 @@ metadata:
     protocol: TCP
     targetPort: 8080
 ```
-- You need to ensure that the target port (on the node/instance for the Pod) for HTTP and HTTPS is the same, as SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our Pods) using HTTP.
+- You need to ensure that the target port (on the node/instance for the Pod) is a suitable value for "http" and "https" mappings. SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our Pods) using HTTP.
 - It does not matter too much which nodePort (or EC2 Instance Port) you choose, as long as it is a sensible value.
-- Note, that in `metadata.annotations` for last applied configurations, you do not need to change it, as it is simply the last applied configuration. It changes based on what was efined in Ports mapping. 
+- Note, that in `metadata.annotations` for last applied configurations, you do not need to change it, as it is simply the last applied configuration. It has no effect on port mappings.
 
 ### Ingress Gateways ###
 
