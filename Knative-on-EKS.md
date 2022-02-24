@@ -71,12 +71,16 @@ Depending on your requirement you may create an ACM for a single root/nonroot do
 - service1.domain.com
 - service2.domain.com
 - etc
+
+
 You will need to create SSL certs for all these **subdomains** or create an SSL cert for a wildcard domain like this:
 - \*.domain.com
 
 Same is true for multiple level of subdomains, for example:
 - service1.namespace.domain.com
 - service2.namespace.domain.com
+
+
 You will need to create a SSL cert for all the subdomains or a wild card one like:
 - \*.namespace.domain.com
 3. Load the TLS cert on Load balancer
@@ -118,6 +122,7 @@ metadata:
 ```
 - You need to ensure that the target port (on the node/instance for the Pod) for HTTP and HTTPS is the same, as SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our Pods) using HTTP.
 - It does not matter too much which nodePort (or EC2 Instance Port) you choose, as long as it is a sensible value.
+- Note, that in `metadata.annotations` for last applied configurations, you do not need to change it, as it is simply the last applied configuration. It changes based on what was efined in Ports mapping. 
 
 ### Ingress Gateways ###
 
