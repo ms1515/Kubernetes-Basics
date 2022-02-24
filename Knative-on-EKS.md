@@ -2,7 +2,7 @@
 AWS EKS Docs: https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
 
 1. IAM role configured for EKS to use. This is already created: `AWSServiceRoleForAmazonEKS`
-2. SSH key created for communicating with EC2 worker nodes in the EKS cluster: `hkai-test-eks-key`
+2. SSH key created for communicating with EC2 worker nodes in the EKS cluster: `your-ec2-key-pair-name`
 3. Have Kubernetes and Knative CLI installed (see local machine setup guide).
 4. Install AWS Cli for your machine, as it is required for EKS Cli (eksctl) to work: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 - Configure the AWS Cli with your IAM User credentials:
@@ -33,14 +33,14 @@ where cluster-config.yaml is:
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
-  name: HeartkeyAI-EKS-Test-Cluster
-  region: eu-west-1
+  name: YOUR-EKS-Cluster-name
+  region: your-region
 managedNodeGroups:
-  - name: hkai-ng-1
+  - name: your-nodegroup-name
     instanceType: m5.large
     desiredCapacity: 3
     ssh: # use EC2 key created for EKS
-      publicKeyName: hkai-test-eks-key
+      publicKeyName: your-ec2-key-pair
 ```
 
 ## Knative Setup ##
