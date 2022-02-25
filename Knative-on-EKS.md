@@ -121,6 +121,8 @@ metadata:
     targetPort: 8080
 ```
 - You need to ensure that the target port (on the node/instance for the Pod) is a suitable value for "http" and "https" mappings. SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our Pods) using HTTP.
+- TargetPort is the port on which your pod will be listening on and where service will send requests to. It is the port number on the endpoint where the traffic will be received. Applicable only when used with ServiceEntries.
+Your application in the container will need to be listening on this port also. NodePort exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. 
 - It does not matter too much which nodePort (or EC2 Instance Port) you choose, as long as it is a sensible value.
 - Note, that in `metadata.annotations` for last applied configurations, you do not need to change it, as it is simply the last applied configuration. It has no effect on port mappings.
 
