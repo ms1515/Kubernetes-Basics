@@ -43,6 +43,19 @@ managedNodeGroups:
       publicKeyName: your-ec2-key-pair
 ```
 
+3. Scale a cluster by providing the cluster config file
+
+```
+eksctl scale nodegroup --config-file=eks-test-cluster.yaml 
+```
+
+or specify the config in cmd:
+
+```
+eksctl scale nodegroup --cluster=HeartkeyAI-EKS-Test-Cluster --nodes=2 --name=hkai-ng-m5-large
+```
+
+
 ## Knative Setup ##
 1. Install Knative and other dependencies to see everything runs ok.
 
