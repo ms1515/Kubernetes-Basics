@@ -160,6 +160,28 @@ Links to relevant issue:
 2. https://stackoverflow.com/questions/63618094/after-adding-aws-acm-eks-elb-is-not-opening-on-https/63763088#63763088
 3. https://stackoverflow.com/questions/54829341/unable-to-access-pod-over-https-via-istio-gateway-running-as-elb-on-aws-eks-wi
 
+## Fargate ##
+
+Delve into using EKS on Fargate to save money; as using Fargate will only charge us for the times Pods are running. 
+
+- knative installs fine, but knative serving pods don't run
+``` 
+Warning  FailedScheduling  18s (x17 over 14m)  default-scheduler  0/2 nodes are available: 2 node(s) had taint {eks.amazonaws.com/compute-type: fargate}, that the pod didn't tolerate.
+
+``` 
+
+- Istio installs fine, but istio-system pods don't run
+``` 
+Warning  FailedScheduling  3s (x6 over 112s)  default-scheduler  0/2 nodes are available: 2 node(s) had taint {eks.amazonaws.com/compute-type: fargate}, that the pod didn't tolerate.
+``` 
+
+- Error Running Example App
+
+``` 
+Error: Internal error occurred: failed calling webhook "webhook.serving.knative.dev": Post "https://webhook.knative-serving.svc:443/?timeout=10s": no endpoints available for service "webhook"
+Run 'kn --help' for usage
+```
+
 ## TroubleShooting ##
 
 1. Sometimes it can take a few minutes for everyting to configure properly.
@@ -167,8 +189,6 @@ Links to relevant issue:
 Especialy: If you have set up everything correctly: DNS, HTTPS, Gateway and Load balancers and SSL certs; 
 
 ## Next Steps ##
-
-1. Delve into using EKS on Fargate to save money; as using Fargate will only charge us for the times Pods are running. 
 
 2. Add Api Gateway for unified API paths and Auth using Cognito.
 
