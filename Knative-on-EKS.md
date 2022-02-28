@@ -160,6 +160,11 @@ Links to relevant issue:
 2. https://stackoverflow.com/questions/63618094/after-adding-aws-acm-eks-elb-is-not-opening-on-https/63763088#63763088
 3. https://stackoverflow.com/questions/54829341/unable-to-access-pod-over-https-via-istio-gateway-running-as-elb-on-aws-eks-wi
 
+## TroubleShooting ##
+
+1. Sometimes it can take a few minutes for everyting to configure properly.
+
+Especialy: If you have set up everything correctly: DNS, HTTPS, Gateway and Load balancers and SSL certs; 
 
 ## Next Steps ##
 
