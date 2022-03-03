@@ -189,7 +189,7 @@ Run 'kn --help' for usage
 
 ![api gateway creating a proxy path to resource](/api_proxy_resource.png)
 ![api gateway creating a proxy path to resource](/api_proxy_path.png)
-![api gateway creating a proxy path to resource](/api_custom_dns.png)
+![api gateway creating a proxy path to resource](/api_custom_domain.png)
 
 
 
