@@ -187,6 +187,9 @@ Run 'kn --help' for usage
 1. Add Api Gateway for unified API paths 
 2. Add Auth to API Gateway using Cognito userpool and implement in backend services.
 
+![api gateway creating a proxy path to resource](/api_proxy_resource.png)
+![api gateway creating a proxy path to resource](/api_proxy_path.png)
+![api gateway creating a proxy path to resource](/api_custom_dns.png)
 
 
 
