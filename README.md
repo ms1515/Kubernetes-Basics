@@ -9,6 +9,7 @@ Knative-serving installation guide: https://knative.dev/docs/install/serving/ins
 
 ## Kubernetes Secrets ##
 
+Setting up secrets: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 General guide on injecting secrets into applications: https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/
 
 - Create repository secret: 
@@ -19,6 +20,10 @@ kubectl create secret docker-registry registry-auth \
   --docker-username=YOUR-GITLAB-USERNAME \
   --docker-password=YOUR-GITLAB-DEPLOY-TOKEN or YOUR-GITLAB-ACCESS-TOKEN
 ```
+- And decode the secret:
+```
+kubectl get secret gitlab-auth --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode
+```
 - Create generic secret: 
 ```
 kubectl create secret generic generic-credentials \                          
@@ -26,6 +31,28 @@ kubectl create secret generic generic-credentials \
 --from-literal=MONGO_DB_USERNAME=YOUR_DATABASE_USERNAME \
 --from-literal=MONGO_DB_PASSWORD=YOUR_DATABASE_PASSWORD
 ```
+- Refer these secrets in your service.yaml
+
+```
+spec:
+      containers:
+        - image: YOUR_IMAGE_REPO_URL
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8096
+          readinessProbe:
+            initialDelaySeconds: 15
+          envFrom:
+            - secretRef:
+                name: mongodb-credentials
+       imagePullSecrets:
+        - name: gitlab-auth
+```
+- (Or) Patch your default serviceaccount with that secret instead of specifying it in service.yaml
+```
+kubectl patch serviceaccount default -p "{\"imagePullSecrets\": [{\"name\": \"container-registry\"}]}"
+```
+
 
 ## Things not becoming ready ##
 
