@@ -182,6 +182,14 @@ Error: Internal error occurred: failed calling webhook "webhook.serving.knative.
 Run 'kn --help' for usage
 ```
 
+## API Gateway ##
+
+1. Add Api Gateway for unified API paths 
+2. Add Auth to API Gateway using Cognito userpool and implement in backend services.
+
+
+
+
 ## TroubleShooting ##
 
 1. Sometimes it can take a few minutes for everyting to configure properly.
@@ -190,7 +198,7 @@ Especialy: If you have set up everything correctly: DNS, HTTPS, Gateway and Load
 
 ## Next Steps ##
 
-2. Add Api Gateway for unified API paths and Auth using Cognito.
+
 
 3. Add Mongo Db Deployment
 
