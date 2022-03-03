@@ -184,14 +184,32 @@ Run 'kn --help' for usage
 
 ## API Gateway ##
 
+Resources: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html
+
 1. Add Api Gateway for unified API paths 
-2. Add Auth to API Gateway using Cognito userpool and implement in backend services.
 
 ![api gateway creating a proxy path to resource](/api_proxy_resource.png)
-![api gateway creating a proxy path to resource](/api_proxy_path.png)
-![api gateway creating a proxy path to resource](/api_custom_domain.png)
+![api gateway creating a proxy path for methods](/api_proxy_path.png)
+
+2. Create a DNS A record to API gateway regional domain
+3. Create a Custom Domain Name with the appropriate TLS certs for the domain
+![api gateway creating a custom domain](/api_custom_domain.png)
+
+4. Add the mapping from the Custom Domain Name to the Api Stage, and specify the **Path** for the custom domain to use for the stage
+This way you can map the same custom domain name to multiple APIs and their stages 
+
+- api.customdomain.com/v1 <--> 1st API, stage v1
+- api.customdomain.com/v2 <--> 1st API, stage v2
+- api.customdomain.com/second/v1 <--> 2nd API, stage v1
+
+and so on
 
 
+
+
+## Auth API Gateway ##
+
+1. Add Auth to API Gateway using Cognito userpool and implement in backend services.
 
 ## TroubleShooting ##
 
