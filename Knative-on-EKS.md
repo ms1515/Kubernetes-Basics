@@ -191,8 +191,11 @@ Resources: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigatew
 ![api gateway creating a proxy path to resource](/api_proxy_resource.png)
 ![api gateway creating a proxy path for methods](/api_proxy_path.png)
 
-2. Create a DNS A record to API gateway regional domain
-3. Create a Custom Domain Name with the appropriate TLS certs for the domain
+2. Create a DNS **A record** to API gateway regional domain
+
+![api gateway creating a custom domain](/custom_domain_record.png)
+
+4. Create a Custom Domain Name with the appropriate TLS certs for the domain
 ![api gateway creating a custom domain](/api_custom_domain.png)
 
 4. Add the mapping from the Custom Domain Name to the Api Stage, and specify the **Path** for the custom domain to use for the stage
@@ -203,6 +206,9 @@ This way you can map the same custom domain name to multiple APIs and their stag
 - api.customdomain.com/second/v1 <--> 2nd API, stage v1
 
 and so on
+
+![api gateway creating a custom domain](/custom_mapping.png)
+![api gateway creating a custom domain](/custom_mapping_nested.png)
 
 
 
