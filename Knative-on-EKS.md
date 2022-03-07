@@ -193,11 +193,13 @@ Resources: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigatew
 
 2. You can then deploy your API created in resources section to a specific stage. A stage is basically a way of versioning your API deployments i.e you can have dev,prod,test stages of your API, or v1,v2,v3 etc stages of your API.
 
-2. Create a DNS **A record** to API gateway regional domain
+2. Create a Custom Domain Name with the appropriate TLS certs for the domain. 
+
+This will give you the API gateway domain name (regional endpoint).
 
 ![api gateway creating a custom domain](/custom_domain_record.png)
 
-4. Create a Custom Domain Name with the appropriate TLS certs for the domain
+4. Create a DNS **A record** for the Custom Domain Name to API gateway regional domain name
 ![api gateway creating a custom domain](/api_custom_domain.png)
 
 4. Add the mapping from the Custom Domain Name to the Api Stage, and specify the **Path** for the custom domain to use for the stage.
@@ -212,8 +214,6 @@ and so on
 ![api gateway creating a custom domain](/custom_mapping.png)
 ![api gateway creating a custom domain](/custom_domain_mapping.png)
 ![api gateway creating a custom domain](/custom_mapping_nested.png)
-
-
 
 
 ## Auth API Gateway ##
