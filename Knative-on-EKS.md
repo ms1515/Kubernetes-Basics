@@ -210,7 +210,9 @@ This way you can map the same custom domain name to multiple APIs and their stag
 and so on
 
 ![api gateway creating a custom domain](/custom_mapping.png)
+![api gateway creating a custom domain](/custom_domain_mapping.png)
 ![api gateway creating a custom domain](/custom_mapping_nested.png)
+
 
 
 
