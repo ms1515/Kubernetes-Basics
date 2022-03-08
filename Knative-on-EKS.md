@@ -215,6 +215,10 @@ and so on
 ![api gateway creating a custom domain](/custom_domain_mapping.png)
 ![api gateway creating a custom domain](/custom_mapping_nested.png)
 
+### Note: API Gateway has a payload limit of 10mb! ###
+
+Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html
+
 
 ## Auth API Gateway ##
 
