@@ -175,7 +175,7 @@ Warning  FailedScheduling  18s (x17 over 14m)  default-scheduler  0/2 nodes are 
 Warning  FailedScheduling  3s (x6 over 112s)  default-scheduler  0/2 nodes are available: 2 node(s) had taint {eks.amazonaws.com/compute-type: fargate}, that the pod didn't tolerate.
 ``` 
 
-![fargate knative pods errors](/fargate-knative-pods.png)
+![fargate knative pods errors](/knative-pods-on-fargate.png)
 
 - Error Running Example App
 
