@@ -214,7 +214,7 @@ This way you can map the same custom domain name to multiple APIs and their stag
 and so on
 
 ![api gateway creating a custom domain](/custom_mapping.png)
-![api gateway creating a custom domain](/custom_domain_mapping.png)
+![api gateway creating a custom domain](/custom_domain_mappings.png)
 ![api gateway creating a custom domain](/custom_mapping_nested.png)
 
 ### Note: API Gateway has a payload limit of 10mb! ###
@@ -224,7 +224,27 @@ Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html
 
 ## Auth API Gateway ##
 
-1. Add Auth to API Gateway using Cognito userpool and implement in backend services.
+1. Add Authoriser to API Gateway using Cognito userpool 
+![api gateway creating a custom authorizer](/api_gateway_cognito_authoriser.png)
+
+2. Create a resource server in Cognito User Pool for the backend, and define the scope if any
+
+![creating a custom resource server for the backend](/cognito_resource_Server.png)
+
+3. Use the created Authoriser in any backend API's method, and use the scope
+
+![api gateway using a custom authorizer](/api_gateway_use_authoriser.png)
+
+4. And implement Cognito authentication in backend code. e.g in Springboot applications enable Cognito User Pool Authentication and authorisation
+
+### Postman OAuth flow ###
+
+You need to setup an app client with postman's Callback URL and can then use the auth server URL to initiate OAuth to get tokens to use in Postman.
+
+![postman oauth flow](/postman_auth_config_with_app_client.png)
+
+
+
 
 ## TroubleShooting ##
 
