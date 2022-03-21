@@ -225,9 +225,11 @@ Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html
 ## Auth API Gateway ##
 
 1. Add Authoriser to API Gateway using Cognito userpool 
+Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-enable-cognito-user-pool.html
 ![api gateway creating a custom authorizer](/api_gateway_cognito_authoriser.png)
 
 2. Create a resource server in Cognito User Pool for the backend, and define the scope if any
+Docs: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html
 
 ![creating a custom resource server for the backend](/cognito_resource_Server.png)
 
