@@ -222,7 +222,7 @@ and so on
 Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html
 
 
-## Auth API Gateway ##
+### AWS API Gateway: Auth ###
 
 1. Add Authoriser to API Gateway using Cognito userpool 
 Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-enable-cognito-user-pool.html
@@ -239,13 +239,22 @@ Docs: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-poo
 
 4. And implement Cognito authentication in backend code. e.g in Springboot applications enable Cognito User Pool Authentication and authorisation
 
+Use the blog: https://www.baeldung.com/spring-security-oauth-resource-server
+
 ### Postman OAuth flow ###
 
 You need to setup an app client with postman's Callback URL and can then use the auth server URL to initiate OAuth to get tokens to use in Postman.
 
 ![postman oauth flow](/postman_auth_config_with_app_client.png)
 
+## Custom API Gateway ##
 
+1. Build a custom api gateway using spring cloud API Gateway
+
+### Custom API Gateway: Auth ###
+
+1. Add Auth to Spring API Gateway using this blog (or similar):
+- https://www.baeldung.com/spring-security-oauth-resource-server
 
 
 ## TroubleShooting ##
