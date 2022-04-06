@@ -254,7 +254,9 @@ You need to setup an app client with postman's Callback URL and can then use the
 ### Custom API Gateway: Auth ###
 
 1. Add Auth to Spring API Gateway using this blog (or similar):
-- https://www.baeldung.com/spring-security-oauth-resource-server
+
+- Resource Server: https://www.baeldung.com/spring-security-oauth-resource-server
+- App Client with UI: https://www.baeldung.com/spring-security-oauth-cognito
 
 
 ## TroubleShooting ##
