@@ -228,7 +228,7 @@ Scaffold will scan your application code base and find docker files, Kubernetes 
 A skaffold yaml file can be generated from your project by running the following cmd at the root of your project:
 
 ```
-skaffold init
+skaffold init -f skaffold.yaml
 ```
 
 You can then run your application using:
@@ -239,6 +239,13 @@ skaffold run
 
 And scaffold will take care of building your docker images, deploying them to container registries, and running your application using the Kubernetes manifests (yaml files for pods, services, deployments) in your k8 cluster.
 
+### Skaffold with multiple apps in separate directories (front-end, back-end) ###
+
+This time you will have to specify what docker files to use for each build artifact (build image):
+
+![image](images/skaffold-multiple-apps.png)
+
+Skaffold is smart enough to detect which directory/app had changes and will only rebuild that docker image again, and will only update the deployement associated with that  build artifact (docker image).
 
 **For example, These are the Kubernetes manifests for an example application:**
 
