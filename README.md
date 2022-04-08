@@ -119,7 +119,7 @@ Getting 403/Access Denied/Forbidden errors on pulling images, repos, packages fo
 
 - what context of kubernetes are you in: Docker Desktop, Kind (kubernetes in Docker) etc
 
-![kubernetes contexts image](/k8Context.png)
+![kubernetes contexts image](images/k8Context.png)
 
 ## Debugging ##
 
