@@ -175,7 +175,7 @@ Warning  FailedScheduling  18s (x17 over 14m)  default-scheduler  0/2 nodes are 
 Warning  FailedScheduling  3s (x6 over 112s)  default-scheduler  0/2 nodes are available: 2 node(s) had taint {eks.amazonaws.com/compute-type: fargate}, that the pod didn't tolerate.
 ``` 
 
-![fargate knative pods errors](/knative-pods-on-fargate.png)
+![fargate knative pods errors](images/knative-pods-on-fargate.png)
 
 - Error Running Example App
 
@@ -190,8 +190,8 @@ Resources: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigatew
 
 1. Add Api Gateway for unified API paths 
 
-![api gateway creating a proxy path to resource](/api_proxy_resource.png)
-![api gateway creating a proxy path for methods](/api_proxy_path.png)
+![api gateway creating a proxy path to resource](images/api_proxy_resource.png)
+![api gateway creating a proxy path for methods](images/api_proxy_path.png)
 
 2. You can then deploy your API created in resources section to a specific stage. A stage is basically a way of versioning your API deployments i.e you can have dev,prod,test stages of your API, or v1,v2,v3 etc stages of your API.
 
@@ -199,10 +199,10 @@ Resources: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigatew
 
 This will give you the API gateway domain name (regional endpoint).
 
-![api gateway creating a custom domain](/custom_domain_record.png)
+![api gateway creating a custom domain](images/custom_domain_record.png)
 
 4. Create a DNS **A record** for the Custom Domain Name to API gateway regional domain name
-![api gateway creating a custom domain](/api_custom_domain.png)
+![api gateway creating a custom domain](images/api_custom_domain.png)
 
 4. Add the mapping from the Custom Domain Name to the Api Stage, and specify the **Path** for the custom domain to use for the stage.
 This way you can map the same custom domain name to multiple APIs and their stages 
@@ -213,9 +213,9 @@ This way you can map the same custom domain name to multiple APIs and their stag
 
 and so on
 
-![api gateway creating a custom domain](/custom_mapping.png)
-![api gateway creating a custom domain](/custom_domain_mappings.png)
-![api gateway creating a custom domain](/custom_mapping_nested.png)
+![api gateway creating a custom domain](images/custom_mapping.png)
+![api gateway creating a custom domain](images/custom_domain_mappings.png)
+![api gateway creating a custom domain](images/custom_mapping_nested.png)
 
 ### Note: API Gateway has a payload limit of 10mb! ###
 
@@ -226,16 +226,16 @@ Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html
 
 1. Add Authoriser to API Gateway using Cognito userpool 
 Docs: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-enable-cognito-user-pool.html
-![api gateway creating a custom authorizer](/api_gateway_cognito_authoriser.png)
+![api gateway creating a custom authorizer](images/api_gateway_cognito_authoriser.png)
 
 2. Create a resource server in Cognito User Pool for the backend, and define the scope if any
 Docs: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html
 
-![creating a custom resource server for the backend](/cognito_resource_Server.png)
+![creating a custom resource server for the backend](images/cognito_resource_Server.png)
 
 3. Use the created Authoriser in any backend API's method, and use the scope
 
-![api gateway using a custom authorizer](/api_gateway_use_authoriser.png)
+![api gateway using a custom authorizer](images/api_gateway_use_authoriser.png)
 
 4. And implement Cognito authentication in backend code. e.g in Springboot applications enable Cognito User Pool Authentication and authorisation
 
@@ -245,7 +245,7 @@ Use the blog: https://www.baeldung.com/spring-security-oauth-resource-server
 
 You need to setup an app client with postman's Callback URL and can then use the auth server URL to initiate OAuth to get tokens to use in Postman.
 
-![postman oauth flow](/postman_auth_config_with_app_client.png)
+![postman oauth flow](images/postman_auth_config_with_app_client.png)
 
 ## Custom API Gateway ##
 
