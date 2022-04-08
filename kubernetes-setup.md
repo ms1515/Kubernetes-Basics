@@ -222,6 +222,10 @@ spring:
 <h1> 9. Simplify deployment with Scaffold</h1>
 
 **Installation Instructions:** https://skaffold.dev/docs/install/
+**Documentation Overview** → http://bit.ly/skaffold-overview 
+**Cloud Blog** → http://bit.ly/blog-Skaffold 
+**GitHub** → http://bit.ly/GitHub-Skaffold 
+
 
 Scaffold will scan your application code base and find docker files, Kubernetes manifests (for pods, deployments, services) and create a scaffold.yaml that points to these configurations, allowing you to run your application from one scaffold file.
 
