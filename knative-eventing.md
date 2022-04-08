@@ -47,6 +47,7 @@ Brokers and Triggers provide an "event mesh" model, which allows an event produc
 
 - Springboot and Kafka (reflectoring.io) :  https://reflectoring.io/spring-boot-kafka/
 - Springboot and Kafka (baeldung) : https://www.baeldung.com/spring-kafka
+- Springboot and Kafka (Medium): https://betterprogramming.pub/kafka-with-java-spring-and-docker-asynchronous-communication-between-microservices-e1d00e120831
 
 <h1> 1. Install Knative Eventing </h1>
 
