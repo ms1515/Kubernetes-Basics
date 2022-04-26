@@ -79,6 +79,31 @@ Processing resources for Istiod. Waiting for Deployment/istio-system/istiod
 
   4. So being able to **debug your pods** in the right namespace is crucial.
 
+### Some Istio pods not being ready ##
+
+like istio-ingressgateway:
+```
+NAME                                   READY   STATUS    RESTARTS   AGE
+istio-ingressgateway-b899b7b79-klb5p   0/1     Pending   0          57d
+istio-ingressgateway-b899b7b79-m45lj   0/1     Pending   0          57d
+istio-ingressgateway-b899b7b79-x6kmh   1/1     Running   0          57d
+istiod-d845fbcfd-8xhsj                 1/1     Running   1          57d
+istiod-d845fbcfd-hjk6p                 1/1     Running   1          57d
+istiod-d845fbcfd-ss7zt                 1/1     Running   0          57d
+```
+
+So check the pod's (the one with error or pending) description: 
+```
+kubectl describe pod istio-ingressgateway-... -n istio-system
+```
+and you will see the reason:
+```
+Events:
+  Type     Reason            Age                       From               Message
+  ----     ------            ----                      ----               -------
+  Warning  FailedScheduling  4m25s (x5375 over 3d19h)  default-scheduler  0/3 nodes are available: 1 Insufficient memory, 1 node(s) were unschedulable, 2 Insufficient cpu.
+```
+
 ### MagicDNS not working ###
 Again check your resources.
 
