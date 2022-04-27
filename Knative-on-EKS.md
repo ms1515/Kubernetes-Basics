@@ -49,13 +49,26 @@ managedNodeGroups:
 eksctl scale nodegroup --config-file=eks-test-cluster.yaml 
 ```
 
-or specify the config in cmd:
+- or specify the config in cmd:
 
 ```
 eksctl scale nodegroup --cluster=HeartkeyAI-EKS-Test-Cluster --nodes=2 --name=hkai-ng-m5-large
 ```
 
+4. Manage Nodegroups
 
+- Add a nodegroup to cluster via config file; existing nodegroups in config file will be excluded 
+```
+eksctl create nodegroup --config-file=dev-cluster.yaml
+```
+- Delete a nodegroup by specifying it
+```
+eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName> --disable-eviction
+```
+- Delete a nodegroup through config file
+```
+eksctl delete nodegroup --config-file=dev-cluster.yaml --include=<nodegroupName> --approve
+```
 ## Knative Setup ##
 1. Install Knative and other dependencies to see everything runs ok.
 
