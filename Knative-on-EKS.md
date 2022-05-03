@@ -81,7 +81,9 @@ Installed directly from Knative installation docs with these versions substitute
 
 2. Setup DNS on Route53 using this guide: https://knative.dev/docs/serving/using-a-custom-domain/#verification-steps
 
-- Edit configmap: ``` kubectl describe configmap config-domain -n knative-serving ```
+- Get all configmaps: ```kubectl get configmap -n knative-serving```
+
+- Edit domain configmap: ``` kubectl describe configmap config-domain -n knative-serving ```
 
 ## Adding HTTPS (AWS instructions) ##
 
