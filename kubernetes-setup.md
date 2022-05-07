@@ -20,7 +20,11 @@ you should then install kubectl - a k8s tool: https://kubernetes.io/docs/tasks/t
 
 Next we will install Istio, think of Istio as a means of traffic managment and routing for our services.
 
-Firstly, run this command to download the binary: 
+You can either install istio from the cmd line or download the binary from its website.
+
+Docs: https://istio.io/latest/docs/setup/getting-started/#download
+
+For the cmd line option (using the docs), run this command to download the binary: 
 
 ```
 curl -L https://istio.io/downloadIstio | sh -
