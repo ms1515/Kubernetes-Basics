@@ -275,6 +275,7 @@ Official Spring Docs: https://docs.spring.io/spring-security/reference/servlet/o
 
 - Resource Server: https://www.baeldung.com/spring-security-oauth-resource-server
 - Resource Server OAUTH (All options): https://www.baeldung.com/spring-cloud-gateway-oauth2
+- Okta Auth with Gateway: https://developer.okta.com/blog/2019/08/28/reactive-microservices-spring-cloud-gateway
 - Resource Server Medium: https://blog.marcusjanke.de/spring-boot-2-3-oauth-2-jwt-security-using-amazon-cognito-d10e4e40ac05
 - App Client with UI: https://www.baeldung.com/spring-security-oauth-cognito
 
