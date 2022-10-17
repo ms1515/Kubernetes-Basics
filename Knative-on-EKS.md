@@ -114,7 +114,7 @@ Same is true for multiple level of subdomains, for example:
 You will need to create a SSL cert for all the subdomains or a wild card one like:
 - \*.namespace.domain.com
 3. Load the TLS cert on Load balancer
-4. OR: Add the following annotations to your istio-ingressgateway (which creates the load balancer) yaml to configure HTTPS and SSL. You can get that using:
+4. OR: Add the following annotations to your istio-ingressgateway (LoadBalancer Service Type: which also creates the assocaited load balancer in Cloud) yaml to configure HTTPS and SSL. You can get that using:
 
 ```
 kubectl edit svc istio-ingressgateway -n istio-system 
@@ -150,10 +150,12 @@ metadata:
     protocol: TCP
     targetPort: 8080
 ```
-- You need to ensure that the target port (on the node/instance for the Pod) is a suitable value for "http" and "https" mappings. SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our Pods) using HTTP.
-- TargetPort is the port on which your pod will be listening on and where service will send requests to. It is the port number on the endpoint where the traffic will be received. Applicable only when used with ServiceEntries.
-Your application in the container will need to be listening on this port also. NodePort exposes a service externally to the cluster by means of the target nodes IP address and the NodePort. 
-- It does not matter too much which nodePort (or EC2 Instance Port) you choose, as long as it is a sensible value.
+- **Port:** Is the Port on the service (Load Balancer type Service) where external traffic is reached.
+- **TargetPort:** is the port on which your application in container will be listening on and where service will send requests to. Applicable only when used with ServiceEntries.
+
+Your application in the container will need to be listening on this port also. You need to ensure that the target port (on the container) is a suitable value for "http" and "https" mappings. SSL terminates at the load balancer and traffic is forwarded to our instances (and thereby our container and Pods) using HTTP, so 8080, 8081 are suitable values.
+
+- **NodePort:** It does not matter too much which nodePort (or EC2 Instance Port) you choose, as long as it is a sensible value between 30000 and 32767
 - Note, that in `metadata.annotations` for last applied configurations, you do not need to change it, as it is simply the last applied configuration. It has no effect on port mappings.
 
 ### Ingress Gateways ###
