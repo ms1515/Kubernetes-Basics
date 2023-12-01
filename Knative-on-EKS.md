@@ -52,7 +52,7 @@ eksctl scale nodegroup --config-file=eks-test-cluster.yaml
 - or specify the config in cmd:
 
 ```
-eksctl scale nodegroup --cluster=HeartkeyAI-EKS-Test-Cluster --nodes=2 --name=hkai-ng-m5-large
+eksctl scale nodegroup --cluster=YOUR_CLUSTER_NAME --nodes=2 --name=YOUR_NODEGROUP_NAME
 ```
 
 4. Manage Nodegroups
