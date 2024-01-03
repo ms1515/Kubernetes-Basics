@@ -214,7 +214,7 @@ spec:
 ```
 spring:
     application:
-        name: upload-ecg-files
+        name: application-name
     data:
         mongodb:
             uri: "mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@cluster0.g1nor.mongodb.net/${MONGO_DB_NAME}?retryWrites=true&w=majority"
